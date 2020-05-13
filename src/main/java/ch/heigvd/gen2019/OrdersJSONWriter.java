@@ -1,9 +1,9 @@
 package ch.heigvd.gen2019;
 
-public class OrdersWriter {
+public class OrdersJSONWriter {
     private Orders orders;
 
-    public OrdersWriter(Orders orders) {
+    public OrdersJSONWriter(Orders orders) {
         this.orders = orders;
     }
 
