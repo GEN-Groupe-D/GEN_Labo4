@@ -54,4 +54,17 @@ public class Product {
                 return "Invalid Size";
         }
     }
+
+    public String getColorFor() {
+        switch (getColor()) {
+            case 1:
+                return "blue";
+            case 2:
+                return "red";
+            case 3:
+                return "yellow";
+            default:
+                return "no color";
+        }
+    }
 }
