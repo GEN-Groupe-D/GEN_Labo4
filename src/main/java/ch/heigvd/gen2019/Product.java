@@ -7,8 +7,6 @@ public class Product {
     private double price;
     private String currency;
 
-    public enum Size {SIZE_NOT_APPLICABLE, XS, S, M, L, XL, XXL}
-
     public enum Color {
         NO_COLOR("no color"),
         BLUE("blue"),
