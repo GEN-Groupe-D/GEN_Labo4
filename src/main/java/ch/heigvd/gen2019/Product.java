@@ -7,23 +7,6 @@ public class Product {
     private double price;
     private String currency;
 
-    public enum Color {
-        NO_COLOR("no color"),
-        BLUE("blue"),
-        RED("red"),
-        YELLOW("yellow");
-
-        private String printable;
-        Color(String printable) {
-            this.printable = printable;
-        }
-
-        @Override
-        public String toString() {
-            return printable;
-        }
-    }
-
     public Product(String code, Color color, Size size, double price, String currency) {
         this.code = code;
         this.color = color;
