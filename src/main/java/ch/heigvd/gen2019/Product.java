@@ -2,14 +2,31 @@ package ch.heigvd.gen2019;
 
 public class Product {
     private String code;
-    private int color;
+    private Color color;
     private Size size;
     private double price;
     private String currency;
-    
+
     public enum Size {SIZE_NOT_APPLICABLE, XS, S, M, L, XL, XXL}
 
-    public Product(String code, int color, Size size, double price, String currency) {
+    public enum Color {
+        NO_COLOR("no color"),
+        BLUE("blue"),
+        RED("red"),
+        YELLOW("yellow");
+
+        private String printable;
+        Color(String printable) {
+            this.printable = printable;
+        }
+
+        @Override
+        public String toString() {
+            return printable;
+        }
+    }
+
+    public Product(String code, Color color, Size size, double price, String currency) {
         this.code = code;
         this.color = color;
         this.size = size;
@@ -21,7 +38,7 @@ public class Product {
         return code;
     }
 
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -42,15 +59,6 @@ public class Product {
     }
 
     public String getColorFor() {
-        switch (getColor()) {
-            case 1:
-                return "blue";
-            case 2:
-                return "red";
-            case 3:
-                return "yellow";
-            default:
-                return "no color";
-        }
+        return color.toString();
     }
 }
