@@ -1,6 +1,6 @@
 package ch.heigvd.gen2019;
 
-public class ProductWriter implements JsonWritable {
+public class ProductWriter extends JsonWritable {
     private Product product;
 
     public ProductWriter(Product product) {
@@ -22,13 +22,5 @@ public class ProductWriter implements JsonWritable {
 
         sb.delete(sb.length() - 2, sb.length());
         return sb.append("}, ").toString();
-    }
-
-    private String addTag(String label, Object value) {
-        return "\"" + label + "\": " + value + ", ";
-    }
-
-    private String addTag(String label, String value) {
-        return addTag(label, (Object)("\"" + value + "\""));
     }
 }
