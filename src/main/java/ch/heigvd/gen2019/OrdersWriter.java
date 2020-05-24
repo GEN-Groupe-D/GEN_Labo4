@@ -28,7 +28,7 @@ public class OrdersWriter {
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
-            getProductContents(sb, order.getProduct(j));
+            sb.append(getProductContents(order.getProduct(j)));
         }
 
         if (order.getProductsCount() > 0) {
@@ -39,7 +39,8 @@ public class OrdersWriter {
         sb.append("}, ");
     }
 
-    private void getProductContents(StringBuffer sb, Product product) {
+    private String getProductContents(Product product) {
+        StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"code\": \"");
         sb.append(product.getCode());
@@ -60,6 +61,7 @@ public class OrdersWriter {
         sb.append("\"currency\": \"");
         sb.append(product.getCurrency());
         sb.append("\"}, ");
+        return sb.toString();
     }
 
 }
