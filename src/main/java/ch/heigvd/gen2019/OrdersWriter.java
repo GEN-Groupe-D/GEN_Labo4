@@ -11,7 +11,7 @@ public class OrdersWriter {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
-            sb.append(getOrderContents(orders.getOrder(i)));
+            sb.append(new OrderWriter(orders.getOrder(i)).getOrderContents());
         }
 
         if (orders.getOrdersCount() > 0) {
@@ -19,25 +19,5 @@ public class OrdersWriter {
         }
 
         return sb.append("]}").toString();
-    }
-
-    private String getOrderContents(Order order) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append("\"id\": ");
-        sb.append(order.getOrderId());
-        sb.append(", ");
-        sb.append("\"products\": [");
-        for (int j = 0; j < order.getProductsCount(); j++) {
-            sb.append(new ProductWriter(order.getProduct(j)).getProductContents());
-        }
-
-        if (order.getProductsCount() > 0) {
-            sb.delete(sb.length() - 2, sb.length());
-        }
-
-        sb.append("]");
-        sb.append("}, ");
-        return sb.toString();
     }
 }
