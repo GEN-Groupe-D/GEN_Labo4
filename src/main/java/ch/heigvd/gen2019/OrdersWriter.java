@@ -7,7 +7,7 @@ public class OrdersWriter {
         this.orders = orders;
     }
 
-    public String getContents() {
+    public String json() {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
