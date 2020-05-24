@@ -8,27 +8,27 @@ public class ProductWriter implements JsonWritable {
     }
 
     public String json() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append("\"code\": \"");
-        sb.append(product.getCode());
-        sb.append("\", ");
-        sb.append("\"color\": \"");
-        sb.append(product.getColor());
-        sb.append("\", ");
+        StringBuilder sb = new StringBuilder("{");
+
+        sb.append(addTag("code", product.getCode()));
+        sb.append(addTag("color", product.getColor()));
 
         if (product.getSize() != Size.SIZE_NOT_APPLICABLE) {
-            sb.append("\"size\": \"");
-            sb.append(product.getSizeFor());
-            sb.append("\", ");
+            sb.append(addTag("size", product.getSizeFor()));
         }
 
-        sb.append("\"price\": ");
-        sb.append(product.getPrice());
-        sb.append(", ");
-        sb.append("\"currency\": \"");
-        sb.append(product.getCurrency());
-        sb.append("\"}, ");
-        return sb.toString();
+        sb.append(addTag("price", product.getPrice()));
+        sb.append(addTag("currency", product.getCurrency()));
+
+        sb.delete(sb.length() - 2, sb.length());
+        return sb.append("}, ").toString();
+    }
+
+    private String addTag(String label, Object value) {
+        return "\"" + label + "\": " + value + ", ";
+    }
+
+    private String addTag(String label, String value) {
+        return addTag(label, (Object)("\"" + value + "\""));
     }
 }
