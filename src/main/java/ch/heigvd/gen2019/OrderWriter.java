@@ -7,7 +7,7 @@ public class OrderWriter {
         this.order = order;
     }
 
-    public String getOrderContents() {
+    public String json() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"id\": ");

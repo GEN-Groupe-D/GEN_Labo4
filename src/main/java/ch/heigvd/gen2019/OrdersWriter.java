@@ -11,7 +11,7 @@ public class OrdersWriter {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
-            sb.append(new OrderWriter(orders.getOrder(i)).getOrderContents());
+            sb.append(new OrderWriter(orders.getOrder(i)).json());
         }
 
         if (orders.getOrdersCount() > 0) {
