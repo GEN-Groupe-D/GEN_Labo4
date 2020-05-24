@@ -8,11 +8,9 @@ public class OrderWriter extends JsonWritable {
     }
 
     public String json() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{");
-        sb.append("\"id\": ");
-        sb.append(order.getOrderId());
-        sb.append(", ");
+        StringBuilder sb = new StringBuilder("{");
+        sb.append(addTag("id", order.getOrderId()));
+
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
             sb.append(new ProductWriter(order.getProduct(j)).json());
@@ -22,8 +20,6 @@ public class OrderWriter extends JsonWritable {
             sb.delete(sb.length() - 2, sb.length());
         }
 
-        sb.append("]");
-        sb.append("}, ");
-        return sb.toString();
+        return sb.append("]}, ").toString();
     }
 }
