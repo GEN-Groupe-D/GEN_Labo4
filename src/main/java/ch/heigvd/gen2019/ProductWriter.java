@@ -7,7 +7,7 @@ public class ProductWriter {
         this.product = product;
     }
 
-    public String getProductContents() {
+    public String json() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"code\": \"");
