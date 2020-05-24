@@ -1,6 +1,6 @@
 package ch.heigvd.gen2019;
 
-public class ProductWriter {
+public class ProductWriter implements JsonWritable {
     private Product product;
 
     public ProductWriter(Product product) {

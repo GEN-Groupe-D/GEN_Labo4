@@ -1,6 +1,6 @@
 package ch.heigvd.gen2019;
 
-public class OrderWriter {
+public class OrderWriter implements JsonWritable {
     private Order order;
 
     public OrderWriter(Order order) {
